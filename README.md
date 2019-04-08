@@ -1,171 +1,68 @@
 # ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Project 3: Web APIs & Classification
 
-### Description
 
-In week four we've learned about a few different classifiers. In week five we'll learn about webscraping, APIs, and Natural Language Processing (NLP). Now we're going to put those skills to the test.
+### Data Science Problem
 
-For project 3, your goal is two-fold:
-1. Using Reddit's API, you'll collect posts from two subreddits of your choosing.
-2. You'll then use NLP to train a classifier on which subreddit a given post came from. This is a binary classification problem.
+Utilizing text collected from two different subreddits, this project seeks to predict the correct subreddit origin of a given post. Several processes will be used such as data acquisition via the Reddit API and natural language processing (NLP) methods, and various classification models will be implemented to analyze the performance results of each. The two subreddits chosen for this project were those pertaining to the ride-sharing companies Lyft and Uber. These were carefully chosen based on my genuine curiosity between the two companies, as they are practically interchangeable from a user perspective despite their vast and notable distinctions from a stakeholder perspective. An almost equal amount of posts were collected from each subreddit (701 from Lyft and 700 from Uber), primarily using only the post title and core text to train and test the models. The observations and insights gained from the data and models will be used to address business implications and recommendations for the respective companies.
 
 
-#### About the API
-
-Reddit's API is fairly straightforward. For example, if I want the posts from [`/r/boardgames`](https://www.reddit.com/r/boardgames), all I have to do is add `.json` to the end of the url: https://www.reddit.com/r/boardgames.json
-
-To help you get started, we have a primer video on how to use Reddit's API: https://www.youtube.com/watch?v=5Y3ZE26Ciuk
-
----
-
-### Requirements
-
-- Gather and prepare your data using the `requests` library.
-- **Create and compare two models**. One of these must be a Bayes classifier, however the other can be a classifier of your choosing: logistic regression, KNN, SVM, etc.
-- A Jupyter Notebook with your analysis for a peer audience of data scientists.
-- An executive summary of the results you found.
-- A short presentation outlining your process and findings for a semi-technical audience.
-
-**Pro Tip 1:** You can find a good example executive summary [here](https://www.proposify.biz/blog/executive-summary).
-
-**Pro Tip 2:** Reddit will give you 25 posts **per request**. To get enough data, you'll need to hit Reddit's API **repeatedly** (most likely in a `for` loop). _Be sure to use the `time.sleep()` function at the end of your loop to allow for a break in between requests. **THIS IS CRUCIAL**_
-
-**Pro tip 3:** The API will cap you at 1,000 posts for each subreddit (assuming the subreddit has that many posts).
-
-**Pro tip 4:** At the end of each loop, be sure to save the results from your scrape as a `csv`: JSON from Reddit > Pandas DataFrame > CSV. That way, if something goes wrong in your loop, you won't lose all your data.
-
----
-
-### Necessary Deliverables / Submission
-
-- Code and executive summary must be in a clearly commented Jupyter Notebook.
-- You must submit your slide deck.
-- Materials must be submitted by **10:00 AM on Monday, April 8th**.
-
----
-
-## Rubric
-Your local instructor will evaluate your project (for the most part) using the following criteria.  You should make sure that you consider and/or follow most if not all of the considerations/recommendations outlined below **while** working through your project.
-
-For Project 3 the evaluation categories are as follows:<br>
-**The Data Science Process**
-- Problem Statement
-- Data Collection
-- Data Cleaning & EDA
-- Preprocessing & Modeling
-- Evaluation and Conceptual Understanding
-- Conclusion and Recommendations
-
-**Organization and Professionalism**
-- Organization
-- Visualizations
-- Python Syntax and Control Flow
-- Presentation
-
-**Scores will be out of 30 points based on the 10 categories in the rubric.** <br>
-*3 points per section*<br>
-
-| Score | Interpretation |
-| --- | --- |
-| **0** | *Project fails to meet the outlined expectations; many major issues exist.* |
-| **1** | *Project close to meeting expectations; many minor issues or a few major issues.* |
-| **2** | *Project meets expectations; few (and relatively minor) mistakes.* |
-| **3** | *Project demonstrates a thorough understanding of all of the considerations outlined.* |
+## Executive Summary
 
 
-### The Data Science Process
+### Contents:
 
-**Problem Statement** 
-- Is it clear what the goal of the project is?
-- What type of model will be developed?
-- How will success be evaluated?
-- Is the scope of the project appropriate?
-- Is it clear who cares about this or why this is important to investigate?
-- Does the student consider the audience and the primary and secondary stakeholders?
+This project is divided into the following various sections for step-by-step analysis:
 
-**Data Collection** 
-- Was enough data gathered to generate a significant result?
-- Was data collected that was useful and relevant to the project?
-- Was data collection and storage optimized through custom functions, pipelines, and/or automation?
-- Was thought given to the server receiving the requests such as considering number of requests per second?
+•Data Science Problem Statement <br>
+•Data Collection <br>
+•Data Cleaning & EDA <br>
+•Preprocessing & Modeling <br>
+•Evaluation and Conceptual Understanding | Conclusion and Recommendations
 
-**Data Cleaning and EDA** 
-- Are missing values imputed/handled appropriately?
-- Are distributions examined and described?
-- Are outliers identified and addressed?
-- Are appropriate summary statistics provided?
-- Are steps taken during data cleaning and EDA framed appropriately?
-- Does the student address whether or not they are likely to be able to answer their problem statement with the provided data given what they've discovered during EDA?
-
-**Preprocessing and Modeling** 
-- Is text data successfully converted to a matrix representation?
-- Are methods such as stop words, stemming, and lemmatization explored?
-- Does the student properly split and/or sample the data for validation/training purposes?
-- Does the student test and evaluate a variety of models to identify a production algorithm (**AT MINIMUM:** Bayes and one other model)?
-- Does the student defend their choice of production model relevant to the data at hand and the problem?
-- Does the student explain how the model works and evaluate its performance successes/downfalls?
-
-**Evaluation and Conceptual Understanding** 
-- Does the student accurately identify and explain the baseline score?
-- Does the student select and use metrics relevant to the problem objective?
-- Does the student interpret the results of their model for purposes of inference?
-- Is domain knowledge demonstrated when interpreting results?
-- Does the student provide appropriate interpretation with regards to descriptive and inferential statistics?
-
-**Conclusion and Recommendations** 
-- Does the student provide appropriate context to connect individual steps back to the overall project?
-- Is it clear how the final recommendations were reached?
-- Are the conclusions/recommendations clearly stated?
-- Does the conclusion answer the original problem statement?
-- Does the student address how findings of this research can be applied for the benefit of stakeholders?
-- Are future steps to move the project forward identified?
+### Data Dictionary
+|          Name          |       Type       | Location            | Description                                                                                                                                           |
+|:----------------------:|:----------------:|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| first_df               | pandas dataframe | Notebook 1          | Initial data from Lyft subreddits                                                                                                                     |
+| second_df              | pandas dataframe | Notebook 1          | Initial data from Uber subreddits                                                                                                                     |
+| count_df               | pandas dataframe | Notebook 2          | Dataframe specifically generated to analyze word count mean and distribution for each class                                                           |
+| df                     | pandas           | Notebook 3          | Primary dataframe utilized for all preprocessing and modeling - consists of only 2 columns: text (object) and subreddit (indicating 'lyft' or 'uber') |
+| lyft_uber              | csv file         | Datasets Folder     | Initial file saved with data collected from both subreddits                                                                                           |
+| lyft_uber_all          | csv file         | Datasets Folder     | Second file saved after cleaning data, merging columns - called in as 'df' for all preprocessing and modeling                                         |
+| model_1                | pkl file         | Datasets Folder     | File saved to alleviate kernel issues while generating coefficients from best performing model                                                        |
+| top20words             | png file         | Images Folder       | Chart generated from another platform comparing the count distribution of the 12 words which were found in the top 20 list for both subreddits        |
+| project_3_presentation | pdf file         | Presentation Folder | PDF version of deck shared during presentation                                                                                                        |
 
 
-### Organization and Professionalism
+----
 
-**Project Organization**
-- Are modules imported correctly (using appropriate aliases)?
-- Are data imported/saved using relative paths?
-- Does the README provide a good executive summary of the project?
-- Is markdown formatting used appropriately to structure notebooks?
-- Are there an appropriate amount of comments to support the code?
-- Are files & directories organized correctly?
-- Are there unnecessary files included?
-- Do files and directories have well-structured, appropriate, consistent names?
+### Overview of performance of all 9 models:
 
-**Visualizations**
-- Are sufficient visualizations provided?
-- Do plots accurately demonstrate valid relationships?
-- Are plots labeled properly?
-- Are plots interpreted appropriately?
-- Are plots formatted and scaled appropriately for inclusion in a notebook-based technical report?
-
-**Python Syntax and Control Flow**
-- Is care taken to write human readable code?
-- Is the code syntactically correct (no runtime errors)?
-- Does the code generate desired results (logically correct)?
-- Does the code follows general best practices and style guidelines?
-- Are Pandas functions used appropriately?
-- Are `sklearn` and `NLTK` methods used appropriately?
-
-**Presentation**
-- Is the problem statement clearly presented?
-- Does a strong narrative run through the presentation building toward a final conclusion?
-- Are the conclusions/recommendations clearly stated?
-- Is the level of technicality appropriate for the intended audience?
-- Is the student substantially over or under time?
-- Does the student appropriately pace their presentation?
-- Does the student deliver their message with clarity and volume?
-- Are appropriate visualizations generated for the intended audience?
-- Are visualizations necessary and useful for supporting conclusions/explaining findings?
+| Model | Rank | Transformation Method | Classification Model | Test Score  | Train Score | Best CV Score    | AUC ROC   | Processing Seconds |   |
+|-------|------|-----------------------|----------------------|-------|-------|-------|-------|---------|---|
+| 1     | 1    | Count Vectorizer      | Logistic Regression  | 0.857 | 0.901 | 0.858 | 0.944 | 137.22  |   |
+| 5     | 2    | TF-IDF                | Logistic Regression  | 0.855 | 0.852 | 0.856 | 0.929 | 86.52   |   |
+| 4     | 3    | Count Vectorizer      | Random Forest        | 0.853 | 0.938 | 0.854 | 0.948 | 358.44  |   |
+| 2     | 4    | Count Vectorizer      | KNN                  | 0.846 | 0.852 | 0.849 | 0.930 | 100.21  |   |
+| 8     | 5    | TF-IDF                | Random Forest        | 0.839 | 0.941 | 0.854 | 0.946 | 78.45   |   |
+| 3     | 6    | Count Vectorizer      | Naive Bayes          | 0.819 | 0.878 | 0.820 | 0.915 | 185.08  |   |
+| 6     | 7    | TF-IDF                | KNN                  | 0.808 | 0.818 | 0.830 | 0.904 | 73.63   |   |
+| 7     | 8    | TF-IDF                | Naive Bayes          | 0.789 | 0.848 | 0.821 | 0.903 | 7.36    |   |
+| 9     | 9    | Count Vectorizer      | Logistic Regression  | 0.639 | 0.800 | 0.608 | 
 
 
----
+### Conclusions and Recommendations
+Upon conducting some basic research into Uber and Lyft, it is very apparent that Uber has a substantial lead in many aspects. It was launched in March 2009, is available in 65 countries, averages 15 million rides per day, is valued at $72 billion, and has even expanded to include subsidiaries such as Uber Eats and Jump Bikes. On the other hand, Lyft arrived on the scene 3 years later (June 2012), is only available in the USA & Canada (with no current plans to spread to other countries), averages only 1 million rides per day, and is valued at $15 billion. Lyft also has ventured into new markets such as a "Minnie Van" service at Walt Disney World Resort as well as scooter & bike-sharing industries, however these also pale in comparison to Uber's expansion projects. 
 
-### Why we choose this project for you?
-This project covers three of the biggest concepts we cover in the class: Classification Modeling, Natural Language Processing and Data Wrangling/Acquisition.
+However, based on the the results obtained with Model 9, it can be inferred that from a user perspective, Lyft and Uber are strikingly similar. Without the presence of the primary indicator of 'lyft' or 'uber' being included in the valid words upon which to make classification predictions, even the best model performed quite poorly in distinguishing whether a post came from the Lyft subreddit or the Uber one. Therefore, it seems that their key customers (drivers and riders) essentially tend to express very similar sentiments, whether it be complaints, questions, advice or sharing other general information.
 
-Part 1 of the project focuses on **Data wrangling/gathering/acquisition**. This is a very important skill as not all the data you will need will be in clean CSVs or a single table in SQL.  There is a good chance that wherever you land you will have to gather some data from some unstructured/semi-structured sources; when possible, requesting information from an API, but often scraping it because they don't have an API (or it's terribly documented).
+Another notable statistic found during additinal research is that the average ride rating for Lyft is 4.8, compared to only 4.4 for Uber. Also, in terms of online participation via the Reddit platform, Lyft actually has 15.2k people in its 'community' while there are only 13.9k who have joined the Uber 'community'. Lyft is clearly still outperforming Uber in some arenas even though they could otherwise be considered the underdog of the two.
 
-Part 2 of the project focuses on **Natural Language Processing** and converting standard text data (like Titles and Comments) into a format that allows us to analyze it and use it in modeling.
+From a business perspective, I believe it would be the best interest for each company to take this information and these modeling techniques to better understand what their customers need and want. The benefit of Reddit is that is a completely netural platform (not generated or moderated by either company while as their respective Twitter, Facebook, and App ratings are), and this allows the contributors to post more genuine, authentic feelings. If Lyft and Uber don't do this already, I think it would be beneficial for each company to pay attention to these subreddits. The same data acquistition techniques could be used periodically in order to track changes in customer sentiments over time. Instead of using classification to determine the origin of the subreddit (which is already clear), a more powerful application of these techniques would be to classify each post based on who wrote it (rider or driver), the intended audience (rider/driver/company itself), and which type of post it is (complaint, question (such as app functionality or etiquette), advice, general information sharing, etc.). If organized and analyzed properly, the content provided in the subreddits could provide invaluable information for each company, allowing them to prevent problems, get ideas for new features, gain direct insight from their competitor's customers, and ultimately ensure that their own customers feel heard and valued, which is proven to be crucial for consumer retention.
 
-Part 3 of the project focuses on **Classification Modeling**.  Given that project 2 was a regression focused problem, we needed to give you a classification focused problem to practice the various models, means of assessment and preprocessing associated with classification.   
+----
+
+
+### Additional Referenced Sources
+
+http://www.businessofapps.com/data/uber-statistics <br>
+http://www.businessofapps.com/data/lyft-statistics
