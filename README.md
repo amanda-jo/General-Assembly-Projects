@@ -37,6 +37,7 @@ This project is divided into the following various sections for step-by-step ana
 
 ### Overview of performance of all 9 models:
 
+
 | Model | Rank | Transformation Method | Classification Model | Test Score  | Train Score | Best CV Score    | AUC ROC   | Processing Seconds |   |
 |-------|------|-----------------------|----------------------|-------|-------|-------|-------|---------|---|
 | 1     | 1    | Count Vectorizer      | Logistic Regression  | 0.857 | 0.901 | 0.858 | 0.944 | 137.22  |   |
@@ -47,8 +48,7 @@ This project is divided into the following various sections for step-by-step ana
 | 3     | 6    | Count Vectorizer      | Naive Bayes          | 0.819 | 0.878 | 0.820 | 0.915 | 185.08  |   |
 | 6     | 7    | TF-IDF                | KNN                  | 0.808 | 0.818 | 0.830 | 0.904 | 73.63   |   |
 | 7     | 8    | TF-IDF                | Naive Bayes          | 0.789 | 0.848 | 0.821 | 0.903 | 7.36    |   |
-| 9     | 9    | Count Vectorizer      | Logistic Regression  | 0.639 | 0.800 | 0.608 | 
-
+| 9     | 9    | Count Vectorizer      | Logistic Regression  | 0.639 | 0.800 | 0.608 | 0.683 | 62.12   |   |
 
 ### Conclusions and Recommendations
 Upon conducting some basic research into Uber and Lyft, it is very apparent that Uber has a substantial lead in many aspects. It was launched in March 2009, is available in 65 countries, averages 15 million rides per day, is valued at $72 billion, and has even expanded to include subsidiaries such as Uber Eats and Jump Bikes. On the other hand, Lyft arrived on the scene 3 years later (June 2012), is only available in the USA & Canada (with no current plans to spread to other countries), averages only 1 million rides per day, and is valued at $15 billion. Lyft also has ventured into new markets such as a "Minnie Van" service at Walt Disney World Resort as well as scooter & bike-sharing industries, however these also pale in comparison to Uber's expansion projects. 
